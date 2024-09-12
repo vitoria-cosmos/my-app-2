@@ -1,5 +1,5 @@
-// aula sobre o hook useCallBack
-import React, { useState, useEffect, useMemo, useCallBack } from 'react';
+// aula sobre o hook useMemo
+import React, { useState, useEffect, useMemo } from 'react';
 
 function App() {
     const [tarefas, setTarefas] = useState([]);
@@ -17,18 +17,10 @@ function App() {
         localStorage.setItem('tarefas', JSON.stringify(tarefas));
     }, [tarefas]);
 
-    // function handleAdd() {
-    //     setTarefas([...tarefas, input])
-    //     setInput('');
-    // }
-    const handleAdd = useCallBack(() => {
+    function handleAdd() {
         setTarefas([...tarefas, input])
         setInput('');
-    }, [input, tarefas]) ;
-    // input e tarefas são os hooks que estamos utilizando
-    // a função handleAdd não vai mais ser chamado ou recriada toda vez que digitamos alguma coisa
-    // só vai ser criada ou descartada apenas quando for necessário
-    // quando esses hooks forem realmente alterados
+    }
 
     const totalTarefas = useMemo(() => tarefas.length, [tarefas]);
     // com o useMemo a gente não vai se preocupar com a constante atualização que é feita quando estamos fazendo contas, ou algo do tipo,
