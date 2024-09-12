@@ -1,3 +1,4 @@
+// aula sobre o hook useMemo
 import React, { useState, useEffect, useMemo } from 'react';
 
 function App() {
